@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
-// onMounted(() => {
-//   let testNum = null
-//   if (testNum.length === 1) {
-//     console.log('text : >>>>>>>>>>>>>>>> error')
-//   }
-// })
+onMounted(() => {
+  let testNum = null
+  if (testNum.length === 1) {
+    console.log('text : >>>>>>>>>>>>>>>> error')
+  }
+})
 </script>
 
 <template>
