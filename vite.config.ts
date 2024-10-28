@@ -8,7 +8,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   base: './',
   build: {
-    outDir: 'dist',
+    outDir: './dist',
     sourcemap: true,
     emptyOutDir: true
   },
