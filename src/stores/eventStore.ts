@@ -20,4 +20,4 @@ export const useEventStore = defineStore('eventStore',{
       return this.events
     }
   }
-})
+})  as any
