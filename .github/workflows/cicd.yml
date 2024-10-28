@@ -1,4 +1,4 @@
-name: sourceMap 自动部署
+name: todoList 自动部署
 on:
   push:
     branches:
