@@ -11,9 +11,8 @@ let tabActiveName = ref<string>('local')
 
 let dialogVisible = ref(false)
 
-let sourceMapLink = ref<any>(
-  'https://ppppppan.github.io/sourceMap-demo/assets/ErrorView-BGCnhUf-.js.map'
-)
+let sourceMapLink = ref<any>()
+// 'https://ppppppan.github.io/sourceMap-demo/assets/ErrorView-BGCnhUf-.js.map'
 
 let stackFrameObj = {
   line: 0,
@@ -99,7 +98,12 @@ onMounted(() => {
       {{ js_error.stack }}
     </pre>
     <el-collapse v-model="activeName" accordion>
-      <el-collapse-item v-for="(item,index) in js_error.stack_frames" :key="index" :name="index" :title="item.source">
+      <el-collapse-item
+        v-for="(item, index) in js_error.stack_frames"
+        :key="index"
+        :name="index"
+        :title="item.source"
+      >
         <el-row :gutter="20">
           <el-col :span="20">
             <div>
@@ -107,7 +111,7 @@ onMounted(() => {
             </div>
           </el-col>
           <el-col :span="4">
-            <el-button type="primary" size="small" @click="openDialog(item,index)">
+            <el-button type="primary" size="small" @click="openDialog(item, index)">
               映射源码
             </el-button>
           </el-col>
@@ -132,14 +136,12 @@ onMounted(() => {
         <el-tab-pane label="本地上传" name="local">
           <el-upload drag :before-upload="sourceMapUpload">
             <i class="el-icon-upload"></i>
-            <div>
-              将文件拖到此处，或者<em>点击上传</em>
-            </div>
+            <div>将文件拖到此处，或者<em>点击上传</em></div>
           </el-upload>
         </el-tab-pane>
         <el-tab-pane label="远程加载" name="origin">
           <el-input v-model="sourceMapLink" placeholder=""></el-input>
-          <el-button style="margin-top:10px" type="primary" @click="loadSourceMap">加载</el-button>
+          <el-button style="margin-top: 10px" type="primary" @click="loadSourceMap">加载</el-button>
         </el-tab-pane>
       </el-tabs>
     </el-dialog>
