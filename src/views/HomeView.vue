@@ -11,8 +11,9 @@ let tabActiveName = ref<string>('local')
 
 let dialogVisible = ref(false)
 
-let sourceMapLink = ref<any>()
-// 'https://ppppppan.github.io/sourceMap-demo/assets/ErrorView-BGCnhUf-.js.map'
+let sourceMapLink = ref<any>(
+  'https://begeta-ice.github.io/sourceMap/assets/ErrorView-D_A5l02s.js.map'
+)
 
 let stackFrameObj = {
   line: 0,
@@ -82,6 +83,7 @@ const getSource = async (sourcemap: any, line: number, column: number = 0) => {
 onMounted(() => {
   try {
     let jsErrorList = localStorage.getItem('jsErrorList')
+    console.log('jserrorList', jsErrorList)
     if (jsErrorList) {
       isError.value = true
       js_error.value = JSON.parse(jsErrorList)
